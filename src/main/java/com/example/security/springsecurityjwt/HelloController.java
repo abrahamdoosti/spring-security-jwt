@@ -9,6 +9,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,8 +34,8 @@ public class HelloController {
 	private JwtUtil jwtTokenUtil;
 
 	@GetMapping("/hello")
-	//@PreAuthorize("hasRole('Admin')")
-	public String hello(Principal principal) {
+	@PreAuthorize("hasAuthority('Admin')")
+	public String hello(final Principal principal) {
 		return "hello "+principal.getName()+"!";
 	}
 
