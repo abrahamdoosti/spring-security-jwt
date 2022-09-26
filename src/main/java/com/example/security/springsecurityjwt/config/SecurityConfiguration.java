@@ -20,7 +20,6 @@ import com.example.security.springsecurityjwt.services.MyUserDetailsService;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfiguration {
 
 	@Autowired

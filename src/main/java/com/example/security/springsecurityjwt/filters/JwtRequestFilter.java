@@ -17,7 +17,12 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.example.security.springsecurityjwt.services.MyUserDetailsService;
 import com.example.security.springsecurityjwt.util.JwtUtil;
-
+/**
+ * This Filter intercepts every request and validates if the user is authenticated based on
+ *  the jwt token sent from client in the header
+ * @author abrah
+ *
+ */
 @Component
 public class JwtRequestFilter extends OncePerRequestFilter {
 
